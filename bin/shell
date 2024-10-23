@@ -1,0 +1,8 @@
+if [ -f "$@" ]; then
+    nom_fichier=$(basename "$@" .c .cpp .java)
+
+    echo "/* ----------- Fin de $nom_fichier ----------- */" >> "$@"
+    echo "Ligne ajoutée à $fichier"
+else
+    echo "Le fichier $@ n'existe pas ou n'est pas un fichier régulier."
+fi

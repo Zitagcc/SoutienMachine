@@ -1,0 +1,18 @@
+
+if [! -d "sauvegarde"]; then 
+    mkdir sauvegarde
+fi 
+
+# Ecrire la commande sauver qui copie des fichiers passés en 
+# paramètres dans le répertoire
+# sauvegarde du répertoire courant (à créer s'il n'existe pas).
+for fichier in "$@"; do
+  if [ -d "$fichier" ]; then
+    echo "Erreur : '$fichier' est un répertoire, non copié."
+  elif [ ! -e "$fichier" ]; then
+    echo "Erreur : '$fichier' n'existe pas."
+  else
+    cp "$fichier" sauvegarde/
+    echo "'$fichier' a été copié dans le répertoire sauvegarde."
+  fi
+done

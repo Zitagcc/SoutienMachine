@@ -1,0 +1,11 @@
+jour=$(date +%-d)     # Enlève les zéros non significatifs pour le jour
+mois=$(date +%m)     
+annee=$(date +%Y)     
+
+# Si le jour est 1, utiliser "1er" au lieu de "1eme"
+if [ "$jour" -eq 1 ]; then
+  echo "Nous sommes le 1er jour du $mois""eme mois de l’année $annee."
+else
+  echo "Nous sommes le ${jour}eme jour du ${mois}eme mois de l’année ${annee}."
+fi
+

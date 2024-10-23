@@ -1,0 +1,34 @@
+if [ $# -ne 1 ]; then
+    echo "Usage : categorie <année_de_naissance>"
+    exit 1
+fi
+
+annee_de_naissance=$1
+categ=""
+
+if [[ $annee_de_naissance -le 1976 ]]; then
+    categ="Masters"
+elif [[ $annee_de_naissance -ge 1977 && $annee_de_naissance -le 1993 ]]; then
+    categ="Seniors"
+elif [[ $annee_de_naissance -ge 1994 && $annee_de_naissance -le 1996 ]]; then
+    categ="Espoirs"
+elif [[ $annee_de_naissance -ge 1997 && $annee_de_naissance -le 1998 ]]; then
+    categ="Juniors"
+elif [[ $annee_de_naissance -ge 1999 && $annee_de_naissance -le 2000 ]]; then
+    categ="Cadets"
+elif [[ $annee_de_naissance -ge 2001 && $annee_de_naissance -le 2002 ]]; then
+    categ="Minimes"
+elif [[ $annee_de_naissance -ge 2003 && $annee_de_naissance -le 2004 ]]; then
+    categ="Benjamins"
+elif [[ $annee_de_naissance -ge 2005 && $annee_de_naissance -le 2006 ]]; then
+    categ="Poussins"
+elif [[ $annee_de_naissance -ge 2007 && $annee_de_naissance -le 2009 ]]; then
+    categ="École d'Athlétisme"
+elif [[ $annee_de_naissance -ge 2010 ]]; then
+    categ="Baby Athlé"
+else
+    echo "Année de naissance non reconnue."
+    exit 1
+fi
+
+echo "Catégorie : $categ"

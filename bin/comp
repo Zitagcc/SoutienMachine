@@ -1,0 +1,21 @@
+
+# If we want to compile a file named "test.c" and create an executable named "test", we can use the following command:
+# fichier="$1"
+# executable="${fichier%.c}"
+
+
+# fichier="$1.c"
+# executable="$1"
+
+fichier="$1"
+executable="${fichier%.c}"
+
+gcc "$fichier" -o "$executable" 2> comp.log
+
+if [ $? -eq 0 ]; then
+    echo "Compilation succeeded"
+    echo "Executable created: $executable"
+else
+    echo "Compilation failed"
+    cat comp.log
+fi

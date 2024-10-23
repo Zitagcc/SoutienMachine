@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ "$1" = "--help" ]
+then
+    echo "usage : testparm parametres"
+else
+    echo "Les parametres sont : $*"
+fi

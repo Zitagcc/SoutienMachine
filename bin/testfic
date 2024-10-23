@@ -1,0 +1,10 @@
+#!/bin/bash
+if test $# -eq 0 -o "$1" = "--help"; then
+    echo "usage : testfic nomfichier"
+elif [ -f $1 ] ; then
+    echo "le fichier $1 existe"
+elif [ -d $1 ] ; then
+    echo "le repertoire $1 existe"
+else
+    echo $1 est absent !
+fi

@@ -1,0 +1,19 @@
+if [ $# -eq 0 ]; then
+    echo "Aucun paramètre fourni. Utilisation : maximum <liste d'entiers>"
+    exit 1
+fi
+
+maxi=-9999999  
+
+for num in "$@"; do
+    if [[ "$num" =~ ^[0-9]+$ ]]; then # Regex pour vérifier si la variable est un entier
+        if [ "$num" -gt "$maxi" ]; then
+            maxi="$num"
+        fi
+    else
+        echo "Erreur : '$num' n'est pas un entier."
+        exit 1
+    fi
+done
+
+echo "Le maximum est : $maxi"

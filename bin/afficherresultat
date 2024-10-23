@@ -1,0 +1,18 @@
+if [ $# -ne 6 ]; then
+    echo "Usage : afficherresultat <prénom> <nom> <date_de_naissance> <essai1> <essai2> <essai3>"
+    exit 1
+fi
+
+prenom="$1"
+nom="$2"
+date_naissance="$3"
+essai1="$4"
+essai2="$5"
+essai3="$6"
+
+# Utilisation de la commande "categorie" pour déterminer la catégorie d'âge
+categ=$(./categorie "$date_naissance")
+
+meilleur_lance=$(./maximum "$essai1" "$essai2" "$essai3")
+
+echo "Le meilleur lancé du $categ $prenom $nom est de $meilleur_lance m"
