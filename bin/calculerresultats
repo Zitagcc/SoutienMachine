@@ -1,0 +1,30 @@
+# Vérifie que le nombre d'arguments est correct
+if [ $# -ne 1 ]; then
+    echo "Usage : calculerresultats <fichier_athletes>"
+    exit 1
+fi
+
+# Récupère le nom du fichier d'athlètes depuis les arguments
+fichier_athletes="$1"
+
+# Vérifie que le fichier existe
+if [ ! -f "$fichier_athletes" ]; then
+    echo "Le fichier $fichier_athletes n'existe pas."
+    exit 1
+fi
+
+# Parcours le fichier d'athlètes ligne par ligne
+while IFS=':' read -r nom prenom date_naissance essai1 essai2 essai3; do
+    # ignore les lignes commençant par #
+    if [[ "$nom" == \#* ]]; then
+        continue
+    fi
+
+    categ=$(./categorie "$date_naissance")
+    meilleur_lance=$(./maximum "$essai1" "$essai2" "$essai3")
+
+    echo "Athlète : $prenom $nom"
+    echo "$categ"
+    echo "Meilleur lancé : $meilleur_lance m"
+    echo
+done < "$fichier_athletes"
