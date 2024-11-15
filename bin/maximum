@@ -16,4 +16,5 @@ for num in "$@"; do
     fi
 done
 
-echo "Le maximum est : $maxi"
+echo "$maxi"
+# echo "Le maximum est : $maxi"
