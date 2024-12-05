@@ -1,0 +1,19 @@
+package carPark;
+
+import java.util.Random;
+
+public class Cars implements Runnable {
+	
+	private CarPark carpark;
+	private Random r;
+	private String nom;
+	
+	public Cars(String nom, CarPark carpark) {
+		this.nom = nom;
+		this.carpark = carpark;
+		r = new Random();
+	}
+	
+	
+
+}

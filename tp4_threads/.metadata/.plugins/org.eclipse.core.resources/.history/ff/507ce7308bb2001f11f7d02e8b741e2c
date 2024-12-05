@@ -1,0 +1,12 @@
+package tp4q2;
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Buddy");
+
+        // Héritage de la classe Animal + exécution d'un thread via Runnable
+        dog.eat(); // Méthode héritée de la classe Animal
+        Thread thread = new Thread(dog); // Exécuter le thread
+        thread.start();
+    }
+}

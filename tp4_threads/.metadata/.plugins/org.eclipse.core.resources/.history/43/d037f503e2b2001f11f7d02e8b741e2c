@@ -1,0 +1,11 @@
+package tp4q2;
+
+public class Main {
+    public static void main(String[] args) {
+        Cat chat = new Cat("Bishou");
+
+        chat.eat(); 
+        Thread thread = new Thread(chat); 
+        thread.start();
+    }
+}

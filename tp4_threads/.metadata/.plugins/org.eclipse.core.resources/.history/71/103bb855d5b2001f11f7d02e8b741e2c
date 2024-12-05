@@ -1,0 +1,15 @@
+package synchronisation;
+
+public class Main {
+	public static void main(String args[]) {
+		Semaphore mutexA = new Semaphore(1);
+		Semaphore mutexB = new Semaphore(1);
+		Semaphore mutexC = new Semaphore(1);
+		
+		new ThreadA(mutexA, mutexB, mutexC).start();
+		new ThreadB(mutexA, mutexB, mutexC).start();
+		new ThreadC(mutexA, mutexB, mutexC).start();
+			
+	}
+
+}

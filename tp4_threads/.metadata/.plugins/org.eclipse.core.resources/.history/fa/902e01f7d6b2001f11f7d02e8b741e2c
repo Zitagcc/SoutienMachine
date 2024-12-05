@@ -1,0 +1,26 @@
+package carPark;
+
+public class CarPark {
+	private int capacity;
+	
+	public CarPark(int capacity) {
+		this.capacity = capacity;
+	}
+	
+	public synchronized void arrive() {
+		System.out.println(Thread.currentThread().getName() + " arrive");
+		if (capacity == 0) {
+			System.out.println(Thread.currentThread().getName() + " is waiting");
+		} else {
+			capacity--;
+			System.out.println(Thread.currentThread().getName() + " park");
+		}
+		
+	}
+	
+	public synchronized void depart() {
+		System.out.println(Thread.currentThread().getName() + " depart");
+		capacity++;
+	}
+
+}

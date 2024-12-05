@@ -1,0 +1,16 @@
+package TP5;
+
+public class HelloRunnable implements Runnable { 
+	public void run() {      
+		System.out.println("Hello from a runnable thread!"); // This is the code that will be executed
+		// when the thread is started.
+	}
+
+
+	public static void main(String args[]) {
+	
+		(new Thread(new HelloRunnable())).start();
+	
+	} 
+
+}
