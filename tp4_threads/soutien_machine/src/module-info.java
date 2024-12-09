@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module soutien_machine {
-}
