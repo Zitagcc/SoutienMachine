@@ -1,0 +1,25 @@
+
+if [ $# -eq 0 ] || [ "$1" = "--help" ]; then
+    echo "usage : gfichier <nombre des fichiers>"
+    echo "exemple : gfichier 3"
+    exit 0
+elif ! [[ "$1" =~ ^[0-9]+$ ]]; then
+    echo "Le nombre de fichiers doit être un entier positif"
+    exit 1
+else
+    repertoire="mes_fichiers"
+
+    if [ ! -d "$repertoire" ]; then
+        mkdir "$repertoire"
+        echo "Le répertoire '$repertoire' a été créé."
+    else
+        echo "Le répertoire '$repertoire' existe déjà."
+    fi
+
+    for ((i=1; i<= $1; i++)); do
+        fichier="$repertoire/fichier$i.txt"
+        echo "Ceci est le fichier numéro $i." > "$fichier"
+    done
+
+    echo "Tous les fichiers ont été créés dans le répertoire '$repertoire'."
+fi
