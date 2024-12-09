@@ -1,1 +1,1 @@
-This repository contains all the supports of soutienMachine course.
+This repository contains all the materials for the Machine Support course.
